@@ -4,7 +4,7 @@ var feeds=require('../models/feeds');
 
 //Get All Feeds or those filtered by search content
 router.get('/',function(req, res){
-    if(req.query.search){
+    if(req.query.search || req.query.category){
         feeds.getFeedsByContent(req.query,function(err,rows){
             if(err)
             {
