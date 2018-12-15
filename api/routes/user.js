@@ -198,8 +198,19 @@ router.delete('/collections',function(req, res){
  *************************************************************/
 //Get all Feed's Articles 
 router.get('/articles',function(req, res){
-    if(req.query){
+    if(req.query.feed){
         user.getArticlesOfFeed(req.query,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+    else if(req.query.userId){
+        user.getArticlesOfUser(req.query,function(err,rows){
             if(err)
             {
                 res.json(err);

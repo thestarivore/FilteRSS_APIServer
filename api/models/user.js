@@ -74,6 +74,9 @@ var user={
   getArticlesOfFeed:function(a, callback){
     return db.query("SELECT * FROM `article` WHERE feed = ?", [a.feed], callback);
   }, 
+  getArticlesOfUser:function(u, callback){
+    return db.query("SELECT * FROM article WHERE user = ?", [u.userId], callback);
+  }, 
   getArticlesOfUserCollection:function(c, callback){
     return db.query("SELECT a.* FROM article AS a JOIN saved_article AS sa ON a.hash_id = sa.article "+ 
                                 "JOIN collection AS c ON sa.collection = c.id "+
