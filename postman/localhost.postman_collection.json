@@ -825,7 +825,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "http://localhost:3000/v1/user/collections?email=test",
+									"raw": "http://localhost:3000/v1/user/articles?feed=1032",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -834,12 +834,12 @@
 									"path": [
 										"v1",
 										"user",
-										"collections"
+										"articles"
 									],
 									"query": [
 										{
-											"key": "email",
-											"value": "test"
+											"key": "feed",
+											"value": "1032"
 										}
 									]
 								}
@@ -949,7 +949,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "http://localhost:3000/v1/user/collections?email=test",
+									"raw": "http://localhost:3000/v1/user/articles/saved?id=16",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -958,12 +958,13 @@
 									"path": [
 										"v1",
 										"user",
-										"collections"
+										"articles",
+										"saved"
 									],
 									"query": [
 										{
-											"key": "email",
-											"value": "test"
+											"key": "id",
+											"value": "16"
 										}
 									]
 								}
@@ -986,24 +987,25 @@
 									"mode": "urlencoded",
 									"urlencoded": [
 										{
-											"key": "title",
-											"value": "TestTitle",
+											"key": "article",
+											"value": "-7526846882523994000",
 											"type": "text"
 										},
 										{
-											"key": "user",
-											"value": "1",
+											"key": "collection",
+											"value": "16",
 											"type": "text"
 										},
 										{
-											"key": "color",
+											"key": "",
 											"value": "1",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:3000/v1/user/multifeeds",
+									"raw": "http://localhost:3000/v1/user/articles/saved",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1012,7 +1014,8 @@
 									"path": [
 										"v1",
 										"user",
-										"multifeeds"
+										"articles",
+										"saved"
 									]
 								}
 							},
