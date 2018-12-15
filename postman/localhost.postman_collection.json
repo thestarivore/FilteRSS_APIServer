@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ddf070f4-0b0f-4149-8e28-dcebbd85f7dc",
+		"_postman_id": "2c250772-1117-4615-b319-37b912bf694b",
 		"name": "localhost",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -239,31 +239,8 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "titino",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "surname",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "titino",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "qwerty12345",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:3000/v1/categories",
@@ -298,31 +275,8 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "titino",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "surname",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "titino",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "qwerty12345",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:3000/v1/feeds",
@@ -352,31 +306,8 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "titino",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "surname",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "titino",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "qwerty12345",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:3000/v1/feeds?search=minute",
@@ -474,24 +405,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/feeds?email=Pino",
@@ -528,24 +443,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/feeds/group?userId=5",
@@ -583,24 +482,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/feeds/checkpoint?feed=1036&multifeed=5",
@@ -796,24 +679,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/multifeeds?email=Pino",
@@ -954,24 +821,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/collections?email=test",
@@ -1094,24 +945,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/collections?email=test",
@@ -1245,24 +1080,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/articles/readed?user=3",
@@ -1399,24 +1218,8 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "title",
-											"value": "TestTitle",
-											"type": "text"
-										},
-										{
-											"key": "url",
-											"value": "www.testurl.com",
-											"type": "text"
-										},
-										{
-											"key": "category",
-											"value": "News",
-											"type": "text"
-										}
-									]
+									"mode": "raw",
+									"raw": ""
 								},
 								"url": {
 									"raw": "http://localhost:3000/v1/user/collections?email=test",
