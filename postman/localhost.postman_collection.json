@@ -964,7 +964,48 @@
 									"query": [
 										{
 											"key": "id",
-											"value": "16"
+											"value": "16",
+											"description": "collection id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:3000/v1/user/articles/saved?userId=3",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/user/articles/saved?userId=16",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"user",
+										"articles",
+										"saved"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "16",
+											"description": "user id"
 										}
 									]
 								}

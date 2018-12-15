@@ -213,8 +213,19 @@ router.get('/articles',function(req, res){
 
 //Get all User's Articles of a specific Collection
 router.get('/articles/saved',function(req, res){
-    if(req.query){
+    if(req.query.id){
         user.getArticlesOfUserCollection(req.query,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+    else if(req.query.userId){
+        user.getSavedArticlesOfUser(req.query,function(err,rows){
             if(err)
             {
                 res.json(err);

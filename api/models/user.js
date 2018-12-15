@@ -79,6 +79,10 @@ var user={
                                 "JOIN collection AS c ON sa.collection = c.id "+
                                 "WHERE c.id = ?", [c.id], callback);
   }, 
+  getSavedArticlesOfUser:function(u, callback){
+    return db.query("SELECT sa.* FROM saved_article AS sa JOIN collection AS c ON sa.collection = c.id "+ 
+                                "WHERE c.user = ? ", [u.userId], callback);
+  }, 
   getReadArticles:function(ra, callback){
     return db.query("SELECT * FROM read_article WHERE user = ?", [ra.user], callback);
   }, 
