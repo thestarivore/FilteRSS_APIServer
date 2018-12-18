@@ -801,6 +801,56 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "http://localhost:3000/v1/user/multifeeds",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "NewTtitle",
+											"description": "Optional (at least one between title and color)",
+											"type": "text"
+										},
+										{
+											"key": "color",
+											"value": "5",
+											"description": "Optional (at least one between title and color)",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/user/multifeeds",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"user",
+										"multifeeds"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
@@ -1418,6 +1468,56 @@
 										"v1",
 										"user",
 										"multifeeds"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:3000/v1/user/collections",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "69",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "NewTtitleCol",
+											"description": "Optional (at least one between title and color)",
+											"type": "text"
+										},
+										{
+											"key": "color",
+											"value": "1",
+											"description": "Optional (at least one between title and color)",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/user/collections",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"user",
+										"collections"
 									]
 								}
 							},

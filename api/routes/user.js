@@ -143,6 +143,20 @@ router.delete('/multifeeds',function(req, res){
     }
 });
 
+//Update User's Multifeed
+router.patch('/multifeeds',function(req, res){
+    if(req.body){
+        user.updateUserMultifeed(req.body,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+});
 
 /*************************************************************
  *                        COLLECTIONS
@@ -192,6 +206,20 @@ router.delete('/collections',function(req, res){
     }
 });
 
+//Update User's Collection
+router.patch('/collections',function(req, res){
+    if(req.body){
+        user.updateUserCollection(req.body,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+});
 
 /*************************************************************
  *                         ARTICLES

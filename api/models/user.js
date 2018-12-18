@@ -53,6 +53,21 @@ var user={
   deleteUserMultifeed:function(u, callback){
     return db.query("DELETE FROM multifeed WHERE id=?", [u.id], callback);
   },
+  updateUserMultifeed:function(m, callback){
+    //First convert data to integer
+    var newTitle = m.title;
+    var newColor = parseInt(m.color)
+    if(!newColor){
+      return db.query("UPDATE multifeed SET title=? WHERE id = ?", [newTitle.toString(), m.id], callback);
+    }
+    else if(!newTitle){
+      return db.query("UPDATE multifeed SET color=? WHERE id = ?", [newColor, m.id], callback);
+    }
+    else{
+      return db.query("UPDATE multifeed SET title=?, color=? WHERE id = ?", 
+                              [newTitle.toString(), newColor, m.id], callback);
+    }
+  },
   /*************************************************************
    *                        COLLECTIONS
    *************************************************************/
@@ -67,6 +82,21 @@ var user={
   },
   deleteUserCollection:function(u, callback){
     return db.query("DELETE FROM collection WHERE id=?", [u.id], callback);
+  },
+  updateUserCollection:function(c, callback){
+    //First convert data to integer
+    var newTitle = c.title;
+    var newColor = parseInt(c.color)
+    if(!newColor){
+      return db.query("UPDATE collection SET title=? WHERE id = ?", [newTitle.toString(), c.id], callback);
+    }
+    else if(!newTitle){
+      return db.query("UPDATE collection SET color=? WHERE id = ?", [newColor, c.id], callback);
+    }
+    else{
+      return db.query("UPDATE collection SET title=?, color=? WHERE id = ?", 
+                              [newTitle.toString(), newColor, c.id], callback);
+    }
   },
   /*************************************************************
    *                         ARTICLES
