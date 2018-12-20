@@ -955,19 +955,44 @@
 											"type": "text"
 										},
 										{
-											"key": "user",
-											"value": "1",
+											"key": "description",
+											"value": "asd",
 											"type": "text"
 										},
 										{
-											"key": "color",
-											"value": "1",
+											"key": "comment",
+											"value": "asd",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "ww.test.com",
+											"type": "text"
+										},
+										{
+											"key": "img_link",
+											"value": "ww.test.com",
+											"type": "text"
+										},
+										{
+											"key": "pub_date",
+											"value": "2018-12-11 00:00:00",
+											"type": "text"
+										},
+										{
+											"key": "user",
+											"value": "62",
+											"type": "text"
+										},
+										{
+											"key": "feed",
+											"value": "52",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:3000/v1/user/multifeeds",
+									"raw": "http://localhost:3000/v1/user/articles",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -976,7 +1001,7 @@
 									"path": [
 										"v1",
 										"user",
-										"multifeeds"
+										"articles"
 									]
 								}
 							},
@@ -1130,6 +1155,85 @@
 											"value": "1",
 											"type": "text",
 											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/user/articles/saved",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"user",
+										"articles",
+										"saved"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:3000/v1/user/articles/saved(both article and saved_article)",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "TestTitle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "asd",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "asd",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "ww.test.com",
+											"type": "text"
+										},
+										{
+											"key": "img_link",
+											"value": "ww.test.com",
+											"type": "text"
+										},
+										{
+											"key": "pub_date",
+											"value": "2018-12-11 00:00:00",
+											"type": "text"
+										},
+										{
+											"key": "user",
+											"value": "62",
+											"type": "text"
+										},
+										{
+											"key": "feed",
+											"value": "52",
+											"type": "text"
+										},
+										{
+											"key": "collectionId",
+											"value": "64",
+											"type": "text"
 										}
 									]
 								},

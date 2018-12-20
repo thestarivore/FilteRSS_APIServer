@@ -308,7 +308,20 @@ router.put('/articles',function(req, res){
 
 //Save an Article to the User's Collection
 router.put('/articles/saved',function(req, res){
-    if(req.body){
+    //Add both the single article and saved_article
+    if(req.body.title && req.body.collectionId){
+        user.addArticleAssociatedToCollection(req.body,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+    //Add only the saved_article
+    else{
         user.addSavedArticle(req.body,function(err,rows){
             if(err)
             {

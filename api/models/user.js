@@ -128,8 +128,9 @@ var user={
     var hash_id = parseInt(bigInt(hash_id_str).toString())-9223372036854775807;
 
     return db.query("INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) "+
-                            "VALUES (?,?,?,?,?,?,?,?,?)", 
-                            [hash_id, a.title, a.description, a.comment, a.link, a.img_link, a.pub_date, a.user, a.feed], 
+                            "SELECT ?,?,?,?,?,?,?,?,? "+
+                            "WHERE NOT EXISTS (SELECT a.hash_id FROM article AS a WHERE a.hash_id=?);", 
+                            [hash_id, a.title, a.description, a.comment, a.link, a.img_link, a.pub_date, a.user, a.feed, hash_id], 
                             callback);
   },
   addSavedArticle:function(sa, callback){
@@ -138,6 +139,21 @@ var user={
     return db.query("INSERT INTO saved_article(article, collection) VALUES (?,?)", 
                             [article.toString(), sa.collection], 
                             callback);
+  },
+  addArticleAssociatedToCollection:function(a, callback){
+    //Compute CRC64-ECMA182 Hash function on the string composed of the Article's Title and Publication Date
+    var hash_id_array = crc64.crc64(a.title.toString() + a.pub_date.toString());
+    var hash_id_str = crc64.toUInt64String(hash_id_array);
+
+    //Conversion from unsigned 64-bit Integer to signed 64-bit Integer
+    var hash_id = parseInt(bigInt(hash_id_str).toString())-9223372036854775807;
+
+    return db.query("INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) "+
+                            "SELECT ?,?,?,?,?,?,?,?,? "+
+                            "WHERE NOT EXISTS (SELECT a.hash_id FROM article AS a WHERE a.hash_id = ?); "+
+                            "INSERT INTO saved_article(article, collection) VALUES (?, ?);", 
+                            [hash_id, a.title, a.description, a.comment, a.link, a.img_link, a.pub_date, a.user, a.feed, 
+                              hash_id, hash_id, a.collectionId], callback);
   },
   addReadArticle:function(ra, callback){
     var article = bigInt(ra.article);

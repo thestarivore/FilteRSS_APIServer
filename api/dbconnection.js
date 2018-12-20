@@ -13,6 +13,7 @@ var connection = mysql.createPool({
   password: "",
   database: "my_rssfeedrepository",
   supportBigNumbers: true, //Otherwise 64-bit numbers get truncated during the queries
-  bigNumberStrings: true
+  bigNumberStrings: true,
+  multipleStatements: true
 });
 module.exports = connection;
