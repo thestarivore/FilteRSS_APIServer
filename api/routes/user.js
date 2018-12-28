@@ -334,10 +334,40 @@ router.put('/articles/saved',function(req, res){
     }
 });
 
+//Save a OpenedArticle (A User has opened an Article)
+router.put('/articles/opened',function(req, res){
+    if(req.body){
+        user.addOpenedArticle(req.body,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+});
+
 //Save a ReadArticle (A User has read an Article)
 router.put('/articles/read',function(req, res){
     if(req.body){
         user.addReadArticle(req.body,function(err,rows){
+            if(err)
+            {
+                res.json(err);
+            }
+            else{
+                res.json(rows);
+            }
+        });
+    }
+});
+
+//Save a FeedbackArticle (A User has a feedback for an Article)
+router.put('/articles/feedback',function(req, res){
+    if(req.body){
+        user.addFeedbackArticle(req.body,function(err,rows){
             if(err)
             {
                 res.json(err);

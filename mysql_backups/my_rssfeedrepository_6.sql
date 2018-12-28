@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Dic 28, 2018 alle 17:54
+-- Creato il: Dic 28, 2018 alle 18:57
 -- Versione del server: 5.7.24-0ubuntu0.18.04.1
 -- Versione PHP: 7.1.15-0ubuntu0.17.10.1
 
@@ -691,7 +691,10 @@ CREATE TABLE `feed_grouping` (
 --
 
 INSERT INTO `feed_grouping` (`feed`, `multifeed`, `article_checkpoint`) VALUES
-(7, 83, NULL);
+(7, 83, NULL),
+(14, 83, NULL),
+(30, 83, NULL),
+(36, 83, NULL);
 
 -- --------------------------------------------------------
 
@@ -786,16 +789,19 @@ INSERT INTO `multifeed` (`id`, `title`, `user`, `color`) VALUES
 CREATE TABLE `read_article` (
   `user` int(11) NOT NULL,
   `article` bigint(20) NOT NULL,
-  `vote` float NOT NULL
+  `opened` tinyint(1) NOT NULL DEFAULT '0',
+  `aread` tinyint(1) NOT NULL DEFAULT '0',
+  `vote` float NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `read_article`
 --
 
-INSERT INTO `read_article` (`user`, `article`, `vote`) VALUES
-(53, -1622407405, 1),
-(53, -1362945511, -1);
+INSERT INTO `read_article` (`user`, `article`, `opened`, `aread`, `vote`) VALUES
+(53, -2028429115, 1, 1, 0),
+(53, -1207224709, 1, 0, 0),
+(53, 620961480, 1, 0, 0);
 
 -- --------------------------------------------------------
 
