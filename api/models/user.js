@@ -158,8 +158,8 @@ var user={
   addReadArticle:function(ra, callback){
     var article = bigInt(ra.article);
 
-    return db.query("INSERT INTO read_article(user, article, vote) VALUES (?,?,?)", 
-                            [ra.user, article.toString(), ra.vote], 
+    return db.query("INSERT INTO read_article(user, article, vote) VALUES (?,?,?) ON DUPLICATE KEY UPDATE vote=?", 
+                            [ra.user, article.toString(), ra.vote, ra.vote], 
                             callback);
   },
   deleteArticle:function(a, callback){
