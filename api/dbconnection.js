@@ -10,7 +10,7 @@ var mysql=require('mysql');
 var connection = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "root",
+  password: "",
   database: "my_rssfeedrepository",
   supportBigNumbers: true, //Otherwise 64-bit numbers get truncated during the queries
   bigNumberStrings: true,

@@ -1,6 +1,7 @@
 var db = require("../dbconnection"); //reference of dbconnection.js
 var bigInt = require("big-integer");
 const crc64 = require("crc64-ecma182");
+var XXHash = require('xxhash');
 
 var user = {
   /*************************************************************
@@ -198,12 +199,11 @@ var user = {
   },
   addArticle: function(a, callback) {
     //Compute CRC64-ECMA182 Hash function on the string composed of the Article's Title and Publication Date
-    var hash_id_array = crc64.crc64(a.title.toString() + a.pub_date.toString());
+    var hash_id_array = crc64.crc64(a.link);
     var hash_id_str = crc64.toUInt64String(hash_id_array);
-
+  
     //Conversion from unsigned 64-bit Integer to signed 64-bit Integer
-    var hash_id =
-      parseInt(bigInt(hash_id_str).toString()) - 9223372036854775807;
+    var hash_id = bigInt(hash_id_str).minus("9223372036854775807").toString();
 
     return db.query(
       "INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) " +
@@ -235,12 +235,11 @@ var user = {
   },
   addArticleAssociatedToCollection: function(a, callback) {
     //Compute CRC64-ECMA182 Hash function on the string composed of the Article's Title and Publication Date
-    var hash_id_array = crc64.crc64(a.title.toString() + a.pub_date.toString());
+    var hash_id_array = crc64.crc64(a.link);
     var hash_id_str = crc64.toUInt64String(hash_id_array);
-
+  
     //Conversion from unsigned 64-bit Integer to signed 64-bit Integer
-    var hash_id =
-      parseInt(bigInt(hash_id_str).toString()) - 9223372036854775807;
+    var hash_id = bigInt(hash_id_str).minus("9223372036854775807").toString();
 
     return db.query(
       "INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) " +
