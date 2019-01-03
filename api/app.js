@@ -13,6 +13,7 @@ var auth=require('./routes/auth');
 var categories=require('./routes/categories');
 var feeds=require('./routes/feeds');
 var user=require('./routes/user');
+var articles=require('./routes/articles');
 var app = express();
 
 
@@ -36,6 +37,7 @@ app.use('/v1/auth',auth);
 app.use('/v1/categories',categories);
 app.use('/v1/feeds',feeds);
 app.use('/v1/user',user);
+app.use('/v1/articles',articles);
 
 
 /// catch 404 and forwarding to error handler

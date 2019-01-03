@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c250772-1117-4615-b319-37b912bf694b",
+		"_postman_id": "134fe003-316e-4c21-9c8b-ded2d94e065f",
 		"name": "localhost",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1629,6 +1629,75 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "getScore",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/articles/score/-8712480702741624000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"articles",
+								"score",
+								"-8712480702741624000"
+							]
+						},
+						"description": "Get the score for a single article"
+					},
+					"response": []
+				},
+				{
+					"name": "getScores",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ids\": [-7377751668903717000, -8712480702741624000,-8468317698692704000]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/articles/scores/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"articles",
+								"scores",
+								""
+							]
+						},
+						"description": "Get the scores for an array of articles"
+					},
+					"response": []
 				}
 			]
 		}
