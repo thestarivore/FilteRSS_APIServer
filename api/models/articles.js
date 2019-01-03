@@ -7,7 +7,7 @@ var articles={
 
   // Get scores for a given array of hash_id. The scores are returned in the same order as the hash_ids are provided
   getScores:function(req, callback){
-    return db.query("SELECT Score FROM `article_stats_view` WHERE `article` IN (?) ORDER BY FIELD(`article`, ?)", 
+    return db.query("SELECT `article`, `score` FROM `article_stats_view` WHERE `article` IN (?) ORDER BY FIELD(`article`, ?)", 
                     [req.body.ids, req.body.ids], callback);
   },
 };

@@ -1645,7 +1645,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/v1/articles/score/-8712480702741624000",
+							"raw": "http://localhost:3000/v1/articles/score/5362807822797491896",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1655,7 +1655,7 @@
 								"v1",
 								"articles",
 								"score",
-								"-8712480702741624000"
+								"5362807822797491896"
 							]
 						},
 						"description": "Get the score for a single article"
@@ -1664,11 +1664,8 @@
 				},
 				{
 					"name": "getScores",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -1679,7 +1676,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ids\": [-7377751668903717000, -8712480702741624000,-8468317698692704000]\n}"
+							"raw": "{\n\t\"ids\": [-5467042494080754359, -5467042494080754359]\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/v1/articles/scores/",
