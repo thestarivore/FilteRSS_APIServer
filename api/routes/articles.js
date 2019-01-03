@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var articles=require('../models/articles');
 
-
 //Get a score for an article
 router.get('/score/:articleHashId', function (req, res) {
     articles.getScore(req.params.articleHashId, function(err,rows){
@@ -21,7 +20,7 @@ router.get('/score/:articleHashId', function (req, res) {
 
 //Get scores for articles
 router.post('/scores', function (req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     articles.getScores(req, function(err,rows){
         if(err)
             res.json(err);
