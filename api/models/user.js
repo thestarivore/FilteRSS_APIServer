@@ -67,7 +67,7 @@ var user = {
    *************************************************************/
   getMultifeedsOfUser: function(u, callback) {
     return db.query(
-      "SELECT mf.id, mf.title, mf.user, mf.color " +
+      "SELECT mf.id, mf.title, mf.user, mf.color, mf.rating " +
         "FROM user AS u " +
         "JOIN multifeed AS mf ON mf.user=u.id " +
         "WHERE u.email = ? ",
@@ -77,8 +77,8 @@ var user = {
   },
   addMultifeed: function(u, callback) {
     return db.query(
-      "INSERT INTO multifeed(title, user, color) VALUES (?,?,?)",
-      [u.title, u.user, u.color],
+      "INSERT INTO multifeed(title, user, color, rating) VALUES (?,?,?,?)",
+      [u.title, u.user, u.color, u.rating],
       callback
     );
   },
@@ -89,25 +89,11 @@ var user = {
     //First convert data to integer
     var newTitle = m.title;
     var newColor = parseInt(m.color);
-    if (!newColor) {
-      return db.query(
-        "UPDATE multifeed SET title=? WHERE id = ?",
-        [newTitle.toString(), m.id],
+    return db.query(
+        "UPDATE multifeed SET title=?, color=?, rating=? WHERE id = ?",
+        [newTitle.toString(), newColor, m.rating, m.id],
         callback
       );
-    } else if (!newTitle) {
-      return db.query(
-        "UPDATE multifeed SET color=? WHERE id = ?",
-        [newColor, m.id],
-        callback
-      );
-    } else {
-      return db.query(
-        "UPDATE multifeed SET title=?, color=? WHERE id = ?",
-        [newTitle.toString(), newColor, m.id],
-        callback
-      );
-    }
   },
   /*************************************************************
    *                        COLLECTIONS

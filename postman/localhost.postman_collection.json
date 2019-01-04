@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "12d41e36-07d7-4430-add0-f09aac5409b6",
+		"_postman_id": "134fe003-316e-4c21-9c8b-ded2d94e065f",
 		"name": "localhost",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -732,6 +732,11 @@
 										{
 											"key": "color",
 											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "4",
 											"type": "text"
 										}
 									]

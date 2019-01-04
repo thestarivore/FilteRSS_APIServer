@@ -20,12 +20,10 @@ router.get('/score/:articleHashId', function (req, res) {
 
 //Get scores for articles
 router.post('/scores', function (req, res) {
-    //console.log(req.body);
     articles.getScores(req, function(err,rows){
         if(err)
             res.json(err);
         else {
-            console.log(rows);
             res.json(rows);//or return rows
         }
     });
