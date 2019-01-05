@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Gen 04, 2019 alle 18:47
+-- Creato il: Gen 05, 2019 alle 14:58
 -- Versione del server: 5.7.24-0ubuntu0.18.04.1
 -- Versione PHP: 7.1.15-0ubuntu0.17.10.1
 
@@ -91,7 +91,7 @@ CREATE TABLE `article_stats_view` (
 ,`SUM(``opened``)` decimal(25,0)
 ,`SUM(``aread``)` decimal(25,0)
 ,`AVG(``vote``)` decimal(14,4)
-,`score` decimal(31,4)
+,`score` decimal(32,4)
 );
 
 -- --------------------------------------------------------
@@ -764,7 +764,6 @@ INSERT INTO `feed_grouping` (`feed`, `multifeed`, `article_checkpoint`) VALUES
 (36, 88, NULL),
 (592, 86, NULL),
 (593, 86, NULL),
-(596, 86, NULL),
 (597, 86, NULL);
 
 -- --------------------------------------------------------
@@ -787,8 +786,8 @@ CREATE TABLE `multifeed` (
 
 INSERT INTO `multifeed` (`id`, `title`, `user`, `color`, `rating`) VALUES
 (86, 'Notizie', 53, -17637, 1),
-(88, 'Tech', 53, -51624, 3),
-(89, 'Test', 53, -6095020, 4);
+(88, 'Tech', 53, -51624, 1),
+(90, 'TestTitle', 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -809,19 +808,11 @@ CREATE TABLE `read_article` (
 --
 
 INSERT INTO `read_article` (`user`, `article`, `opened`, `aread`, `vote`) VALUES
-(53, -8177829647661347134, 1, 0, 0),
-(53, -6198415689967348918, 1, 1, 0),
-(53, -5395999529751403403, 1, 0, 110),
-(53, -4884798787342566621, 1, 1, 0),
-(53, -4358814925770526451, 1, 1, 80),
-(53, -3560508645461731347, 1, 0, 0),
-(53, -2151511837000123903, 1, 1, 1),
-(53, -1728106574347571013, 1, 1, 0),
-(53, 5493878133488469252, 1, 0, 0),
-(53, 6755434836555070026, 1, 1, 150),
-(53, 7278274470934479372, 1, 0, 200),
-(53, 8442337253506577728, 1, 1, 100),
-(53, 8682587327700349475, 1, 0, 0);
+(53, -5570469639779495222, 1, 0, 0),
+(53, 3440575440215940253, 1, 0, 0),
+(53, 5184877736056803361, 1, 0, 1),
+(53, 7215621522402291327, 1, 0, 1),
+(53, 8460045127436240009, 1, 0, -1);
 
 -- --------------------------------------------------------
 
@@ -884,7 +875,7 @@ INSERT INTO `user` (`id`, `name`, `surname`, `email`, `password`) VALUES
 --
 DROP TABLE IF EXISTS `article_stats_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `article_stats_view`  AS  select `read_article`.`article` AS `article`,sum(`read_article`.`opened`) AS `SUM(``opened``)`,sum(`read_article`.`aread`) AS `SUM(``aread``)`,avg(`read_article`.`vote`) AS `AVG(``vote``)`,(((sum(`read_article`.`opened`) / 3) + (sum(`read_article`.`aread`) / 2)) + avg(`read_article`.`vote`)) AS `score` from `read_article` group by `read_article`.`article` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `article_stats_view`  AS  select `read_article`.`article` AS `article`,sum(`read_article`.`opened`) AS `SUM(``opened``)`,sum(`read_article`.`aread`) AS `SUM(``aread``)`,avg(`read_article`.`vote`) AS `AVG(``vote``)`,((((sum(`read_article`.`opened`) / 3) + (sum(`read_article`.`aread`) / 2)) + avg(`read_article`.`vote`)) + 1) AS `score` from `read_article` group by `read_article`.`article` ;
 
 --
 -- Indici per le tabelle scaricate
@@ -975,7 +966,7 @@ ALTER TABLE `feed`
 -- AUTO_INCREMENT per la tabella `multifeed`
 --
 ALTER TABLE `multifeed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 --
 -- AUTO_INCREMENT per la tabella `user`
 --
