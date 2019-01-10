@@ -116,7 +116,8 @@ var user = {
     );
   },
   deleteUserCollection: function(u, callback) {
-    return db.query("DELETE FROM collection WHERE id=?", [u.id], callback);
+    return db.query("DELETE FROM `saved_article` WHERE `collection`=?; "+
+                    "DELETE FROM collection WHERE id=?;", [u.id, u.id], callback);
   },
   updateUserCollection: function(c, callback) {
     //First convert data to integer
