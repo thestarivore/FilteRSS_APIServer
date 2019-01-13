@@ -228,22 +228,25 @@ var user = {
     //Conversion from unsigned 64-bit Integer to signed 64-bit Integer
     var hash_id = bigInt(hash_id_str).minus("9223372036854775807").toString();
 
+    db.query("INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) " +
+    "SELECT ?,?,?,?,?,?,?,?,? FROM DUAL " +
+    "WHERE NOT EXISTS (SELECT a.hash_id FROM article AS a WHERE a.hash_id = ?); ",
+    [
+      hash_id,
+      a.title,
+      a.description,
+      a.comment,
+      a.link,
+      a.img_link,
+      a.pub_date,
+      a.user,
+      a.feed,
+      hash_id
+    ], null);
+
     return db.query(
-      "INSERT INTO article(hash_id, title, description, comment, link, img_link, pub_date, user, feed) " +
-        "SELECT ?,?,?,?,?,?,?,?,? " +
-        "WHERE NOT EXISTS (SELECT a.hash_id FROM article AS a WHERE a.hash_id = ?); " +
         "INSERT INTO saved_article(article, collection) VALUES (?, ?);",
       [
-        hash_id,
-        a.title,
-        a.description,
-        a.comment,
-        a.link,
-        a.img_link,
-        a.pub_date,
-        a.user,
-        a.feed,
-        hash_id,
         hash_id,
         a.collectionId
       ],
